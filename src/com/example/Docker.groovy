@@ -13,9 +13,9 @@ class Docker implements Serializable{
         }
     }
     def buildImage(){
-        script.sh "docker build -t 'omarriad07/demo-app:${script.env.IMAGE_NAME}' ."
+        script.sh "docker build -t omarriad07/demo-app:'${script.env.IMAGE_NAME}' ."
     }
     def pushImage(){
-        script.sh "docker push '${script.env.IMAGE_NAME}'"
+        script.sh "docker push omarriad07/demo-app:'${script.env.IMAGE_NAME}'"
     }
 }
