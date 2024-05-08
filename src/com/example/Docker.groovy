@@ -13,7 +13,7 @@ class Docker implements Serializable{
 
         }
     }
-    def buildImage(String repo){
+    def buildImage(repo){
         script.sh "docker build -t $repo:'${script.env.IMAGE_NAME}' ."
     }
     def pushImage(){
