@@ -11,7 +11,7 @@ class IncrementVersion {
         def packageJson = script.readJSON file:'package.json'
         def version = packageJson.version
         script.echo "$version"
-        env.IMAGE_NAME = "$version-$env.BUILD_NUMBER"
-        script.echo "$env.IMAGE_NAME"
+        script.env.IMAGE_NAME = "$version-$script.env.BUILD_NUMBER"
+        script.echo "$script.env.IMAGE_NAME"
     }
 }
