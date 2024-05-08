@@ -3,6 +3,7 @@ package com.example
 
 class Docker implements Serializable{
     def script
+    String repo
     Docker(script){
         this.script = script
     }
@@ -12,10 +13,10 @@ class Docker implements Serializable{
 
         }
     }
-    def buildImage(){
-        script.sh "docker build -t omarriad07/demo-app:'${script.env.IMAGE_NAME}' ."
+    def buildImage(String repo){
+        script.sh "docker build -t $repo:'${script.env.IMAGE_NAME}' ."
     }
     def pushImage(){
-        script.sh "docker push omarriad07/demo-app:'${script.env.IMAGE_NAME}'"
+        script.sh "docker push $repo:'${script.env.IMAGE_NAME}'"
     }
 }
